@@ -1,0 +1,35 @@
+{
+    "staticData": {
+        "url":{
+            "urlBtnDonate":"./src/assets/img/cash.svg",
+            "urlBtnSend":"./src/assets/img/paper-plane.svg",
+            "urlBtnDelete":"./src/assets/img/002-rubbish-bin.svg",
+            "urlBtnEdit":"./src/assets/img/001-edit.svg"
+        },
+        "text": {
+            "btnDonate": "Donate Author",
+            "btnSend": "Send",
+            "btnEdit": "Edit",
+            "btnDelete": "Delete"
+        }
+    },
+
+    "users":[
+        {"id": 1, "url":"./src/assets/img/userAva/WWII/jasonx.png", "name": "WWII", "rules": 1001},
+        {"id": 2, "url":"./src/assets/img/userAva/jasonX/jasonx.png", "name": "jasonX", "rules": 1001},
+        {"id": 3, "url":"./src/assets/img/userAva/LedZep/jasonx.png", "name": "LedZep", "rules": 1001},
+        {"id": 4, "url":"./src/assets/img/userAva/EvgenS/evgen.png", "name": "Evgene S.", "rules": 1001}
+    ],
+
+    "product": [
+        {"id": 10001, "authorId": 1, "url":"./src/assets/img/NoPath/NoPath.png", "name": "Beautiful landscape"}
+    ],
+
+    "comment": [
+        {"id": 1001, "productId":10001, "authorId": 1,  "url":"./src/assets/img/userAva/WWII/jasonx@2x.png", "name":"WWII","text": "Я ничего не понимаю!" }, 
+        {"id": 1002, "productId":10001, "authorId": 2, "url":"./src/assets/img/userAva/jasonX/jasonx@2x.png", "name": "jasonX" ,"text": "Переведите на русский!"},
+        {"id": 1003, "productId":10001, "authorId":3, "url":"./src/assets/img/userAva/LedZep/jasonx@2x.png", "name": "LedZep", "text": "Переведите!"}
+    ],
+
+    "currentUser": {"id": 4, "url":"./src/assets/img/userAva/EvgenS/evgenB.png", "name": "Evgene S.", "rules": 1001}
+}

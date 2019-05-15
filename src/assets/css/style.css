@@ -1,5 +1,7 @@
+
 body {
- box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
 }
 
 .content {
@@ -64,15 +66,18 @@ body {
     color:#666666;
 }
 
-.commet__add__btn {
+.commet__add__btn,
+.confirm__btn {
     right: 0;
     display: flex;
     height: 100%;
-    background-color: #2C3BFF;
     border: none;
     border-radius: 4px;
     width: 90px;
     color: #ffffff;
+}
+
+.commet__add__btn {
     opacity: 0;
 }
 
@@ -103,7 +108,9 @@ body {
 }
    
 .comment__box {
-    padding: 8px;
+    margin: 8px;
+    border-radius: 4px;
+    padding: 0 0 0 16px;
 }
 
 .comment__box:hover {
@@ -127,3 +134,37 @@ body {
     background: rgba(250, 250, 250, 0);
     border: none;
 }
+
+.confirm {
+    height: 48px;
+}
+
+.confirm__text {
+    width: calc(100% - 61px * 2);
+    height: inherit;
+    border-radius: 0 4px 4px 0;
+    z-index: 100;
+    padding-left: 16px;
+    background-color: #F4F5FF;
+    color: #111111;
+}
+
+.confirm__btn-block {
+    right: 0;
+    height: inherit;
+    z-index: 50;
+}
+
+.confirm__btn {
+    font-family: 'MontserratBold';
+    height: inherit;
+    width: 56px;
+    border-radius: 0 4px 4px 0;
+}
+
+.confirm__btn:first-child {
+    z-index: 10;
+    width: 54px;
+    box-shadow: 4px 0 0 0 #2C3BFF;
+}
+

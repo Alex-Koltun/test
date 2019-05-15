@@ -17,17 +17,17 @@ export default {
   name: 'ProductCard',
   props:{
     product: Object,
-    staticDonateText: String,
-    staticDonateUrl: String,
+    text: String,
+    url: String,
   },
   data() {
-      return {
-        picter: this.product.url,
-        name:  this.product.name,
-        btnUrl:  this.staticDonateUrl,
-        btnText: this.staticDonateText
-      }
-    },
+    return {
+      picter: this.product.url,
+      name:  this.product.name,
+      btnUrl:  this.url,
+      btnText: this.text
+    }
+  },
   computed: {
     assign(product) {
       this.picter = product.url

@@ -1,9 +1,9 @@
 <template>
     <form class="commet__add margin-b d-flex w-100">
-        <input  class="commet__add__field w-100" type="text" v-model = "inputText" placeholder="Write a new comment">
-        <button  class="commet__add__btn f-center" :class="{ pAbsolute: isAbsolute}"  @click.prevent="addComments">
-            <img class="commet__button__img" :src="staticData.urlBtnSend"  alt="send">
-            <p class="button__text f-size-11"> {{ staticData.text }}</p>
+        <input  class="commet__add__field w-100" type="text"  placeholder="currentData">
+        <button  class="commet__add__btn f-center bg-color-blue " :class="{ pAbsolute: isAbsolute}"  @click.prevent="addComments">
+            <img class="commet__button__img"  alt="send">
+            <p class="button__text f-size-11"> {{ currentData }}</p>
         </button>
     </form>
 </template>
@@ -15,26 +15,26 @@ let currentData = Api.parseData('data/data.json');
 
 export default {
   name: 'AppForm',
-  props:{
-    currentData: Object
+  props: {
+    dataCopy: Object
   },
   data() {
       return {
-       obj:  Api.parseData('data/data.json'),
-       staticData:{
-            urlBtnSend: this.currentData.staticData.url.urlBtnSend,
-            text:  this.currentData.staticData.text.btnSend
-        },
-        users: {
-            id: this.currentData.currentUser.id,
-            url: this.currentData.currentUser.url,
-            name: this.currentData.currentUser.name
-        },
-        commentList: this.currentData.comment,
-        productId: this.currentData.product[0].id,
-        inputText: '',
+      //  obj:  Api.parseData('data/data.json'),
+      //  staticData:{
+      //       urlBtnSend: this.dataCopy.staticData.url.urlBtnSend,
+      //       text:  this.dataCopy.staticData.text.btnSend
+      //   },
+      //   users: {
+      //       id: this.currentDataCopy.currentUser.id,
+      //       url: this.currentDataCopy.currentUser.url,
+      //       name: this.currentDataCopy.currentUser.name
+      //   },
+      //   commentList: this.currentDataCopy.comment,
+      //   productId: this.currentDataCopy.product[0].id,
+      //   inputText: '',
         isAbsolute: true,
-        getCreate: true
+      //   getCreate: true
       }
     },
 

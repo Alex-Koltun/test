@@ -10,7 +10,10 @@
             "btnDonate": "Donate Author",
             "btnSend": "Send",
             "btnEdit": "Edit",
-            "btnDelete": "Delete"
+            "btnDelete": "Delete",
+            "btnConfirmYes": "Yes",
+            "btnConfirmNo": "No",
+            "textConfirm": "Delete comment?"
         }
     },
 

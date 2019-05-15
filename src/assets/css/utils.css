@@ -84,10 +84,21 @@
     color: rgba(255, 0, 0, 1)
 }
 
+.color-white {
+    color: white;
+}
+
 .color-0 {
     background: rgba(0,0,0,.25)
 }
 
+.bg-color-red {
+    background-color: #FF0000;
+}
+
+.bg-color-blue {
+    background-color: #2C3BFF;
+}
 
 input:focus {
     border-color: #2C3BFF;
@@ -96,4 +107,8 @@ input:focus {
 
 .pointer {
     cursor: pointer;
+}
+
+[v-cloak] {
+    display: none;
 }

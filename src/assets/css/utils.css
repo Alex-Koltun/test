@@ -13,6 +13,10 @@
     transform: translate(-50%, -50%);
 }
 
+.left-0 {
+    left: 0
+}
+
 .d-flex {
     display: flex;
 }

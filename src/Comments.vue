@@ -1,5 +1,5 @@
 <template>
-        <div  class="comment__box d-flex fd-row-reverse  p-relative">
+        <div @click="test" class="comment__box d-flex fd-row-reverse  p-relative">
             <div class="comments__item d-flex align-center w-100"
                 v-show="commeBlock"
                 @click.prevent="toggleControll" >
@@ -12,18 +12,33 @@
             </div>
             
             <app-controll
-                :statData="staticData"
-                :toggleFunction="toggleConfirm"
+                :statData="stData"
+                :toggleDelFunction="toggleConfirm"
+                :toggleEditFunction="toggleForm"
                 v-show="controlBlock"          
             >
             </app-controll>
             
             <app-confirmation
-                :statConfirm="staticData"
+                :statConfirm="stData"
                 :toggleFunction="toggleConfirm"
                 :deleteFunction="daleteCommet"
+                :createItem="editItem"
                 v-show="confirmBlock">
-            </app-confirmation> 
+            </app-confirmation>
+
+            <edit-comments
+                :dataForm="commetData"
+                :commentList="commetData.commet"
+                :createItem="editItem"
+                :currentComment="commetItem"
+                :toggleFunction="toggleForm"
+                :editFunction="editText"
+                v-show="formBlock"
+                style="margin: 0"
+            >
+            </edit-comments>
+
         </div>       
 </template>
 
@@ -32,7 +47,7 @@
 // let currentData = Api.parseData('data/data.json');
 // console.log(currentData)
 
-// import AppForm from './Form.vue';
+import AppForm from './Form.vue';
 import AppControl from './Control.vue';
 import AppConfirmation from './Confirmation.vue';
 
@@ -41,33 +56,39 @@ export default {
   name: 'Comments',
   props: {
       commetItem: Object,
-      currentUser: Object,
+      commetUser: Object,
       commetData: Object,
-      commetArray: Array
+      commetArray: Array,
+      editItem: Boolean
   },
   data() {
       return {
-       staticData: this.commetData,
+       stData: this.commetData.staticData,
        text:  this.commetItem.text,
        url: this.commetItem.url,
        name: this.commetItem.name,
        id: +this.commetItem.id,
        authorId: +this.commetItem.authorId,
-    //    userId: currentUser.id,
+       userId: this.commetUser.id,
 
        addCommet: false,
        controlBlock: false,
        commeBlock: true,
        confirmBlock: false,
-       commetText: true
+       commetText: true,
+       formBlock: false
+
       }
     },
     components:  {
-        // 'add-comments': AppForm,
+        'edit-comments': AppForm,
         'app-controll': AppControl,
         'app-confirmation': AppConfirmation
     },
     methods: {
+    test(){
+        // console.log(this.text = '123asdsad')
+      },
       toggleConfirm() {
           switch(this.confirmBlock) {
               case false:
@@ -85,7 +106,7 @@ export default {
           },
 
         toggleControll() {
-            if(this.authorId !== this.userId) {
+            if(this.authorId == this.userId) {
                 switch(this.controlBlock) {
                     case false:
                         this.controlBlock = true
@@ -97,6 +118,7 @@ export default {
                     }
                 }
             },
+
         toggleComment() {
             switch(this.commeBlock) {
                     case false:
@@ -106,8 +128,27 @@ export default {
                     case true:
                         this.commeBlock = false
                     break
-                    }
+                }
              },
+
+        toggleForm() {
+            switch(this.formBlock) {
+                case false:
+                    this.formBlock = true;
+                    this.controlBlock = false;
+                    this.toggleComment();
+                break;
+
+                case true:
+                    this.formBlock = false;
+                    this.toggleComment();
+                break
+            }
+        },
+        editText(input) {
+            this.text = input;
+            console.log(this.text)
+        },
         daleteCommet() {
             let currentId = this.id;
             this.commetArray.forEach(function(item, i, array){
@@ -116,17 +157,11 @@ export default {
                 }   
             })
             }
-        }
-        // let currentElement = event.path[2];
-        // let currentId = +currentElement.id.slice(2);
+        },
+    // watch: {
 
-        // if(currentId == this.currentUsers.id) {
-        //     currentElement.querySelector('.controll').classList.toggle('d-none');
-        // } else {
-        //     alert('Каждый пользователь может изменять только свой комментарий')
-        // }
-
-     }
+    // }
+}
 
 </script>
 

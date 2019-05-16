@@ -44,6 +44,10 @@
     .control__box {
         font-size: 16px;
     }
+   .comment,
+    form {
+      display: none;
+   }
 }
 
 @media screen and (max-width: 585px) {
@@ -88,4 +92,10 @@
         white-space: normal;
         overflow: auto;
     }
+  
+   .comment,
+    form {
+    display: none;
+    }
+  
 }
